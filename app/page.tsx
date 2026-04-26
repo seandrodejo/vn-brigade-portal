@@ -20,8 +20,8 @@ import {
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 /**
- * VN BRIGADE - THE GOD TIER FINAL RELEASE (RESPONSIVE FIX)
- * Fixes: Visible Nav, Compact Project Badge, Logo Alignment
+ * VN BRIGADE - THE GOD TIER FINAL RELEASE (MESSENGER UPDATE)
+ * Target: Quel Ly
  */
 
 export default function Home() {
@@ -35,8 +35,12 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // UPDATE: Directed to Quel Ly
+  // Note: Replace 'quel.ly' with her actual Messenger username or numerical ID if it differs
+  const MESSENGER_URL = "https://m.me/quel.ly";
+
   const handleMessenger = () => {
-    window.open("https://m.me/61557997408908", "_blank");
+    window.open(MESSENGER_URL, "_blank");
   };
 
   return (
@@ -45,10 +49,9 @@ export default function Home() {
       {/* 1. KINETIC PROGRESS TRACKER */}
       <motion.div className="fixed top-0 left-0 right-0 h-1.5 bg-[#FF9F59] origin-left z-[70]" style={{ scaleX }} />
 
-      {/* 2. RESPONSIVE FLOATING NAV (Links now visible on tablets/laptops) */}
+      {/* 2. RESPONSIVE FLOATING NAV */}
       <nav className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 px-4 md:px-6 ${isScrolled ? 'py-3' : 'py-6 md:py-10'}`}>
         <div className={`max-w-7xl mx-auto flex justify-between items-center px-5 md:px-10 py-3 md:py-4 transition-all duration-700 ${isScrolled ? 'bg-white/80 backdrop-blur-2xl rounded-full shadow-lg border border-slate-100' : 'bg-transparent'}`}>
-          
           <div 
             className="flex items-center gap-3 md:gap-5 group cursor-pointer" 
             onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
@@ -63,7 +66,6 @@ export default function Home() {
             </div>
           </div>
           
-          {/* NAV LINKS: Visible from MD (768px) and up */}
           <div className="hidden md:flex items-center gap-6 lg:gap-10 text-[9px] lg:text-[10px] font-black uppercase tracking-[0.25em] text-slate-400">
             <a href="#construction" className="hover:text-[#FF9F59] transition-all">Construction</a>
             <a href="#grocery" className="hover:text-[#FF9F59] transition-all">Grocery</a>
@@ -81,7 +83,6 @@ export default function Home() {
 
       {/* 3. HERO SECTION */}
       <section className="relative px-6 md:px-20 pt-40 md:pt-64 pb-20 md:pb-24 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-        
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] aspect-square bg-[#FF9F59]/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
 
         <div className="flex-1 space-y-8 md:space-y-10 text-center lg:text-left z-10">
@@ -112,18 +113,18 @@ export default function Home() {
               <motion.div 
                 animate={{ x: ["-150%", "150%"] }}
                 transition={{ repeat: Infinity, duration: 3, ease: "easeInOut", repeatDelay: 0.5 }}
-                className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-30deg]"
+                className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/50 to-transparent skew-x-[-30deg]"
               />
               <span className="relative z-10 uppercase">Start Your Build</span>
               <ArrowRight size={24} className="relative z-10 group-hover:translate-x-2 transition-transform" />
             </motion.button>
             <p className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] flex items-center gap-2">
-              <MessageCircle size={14} className="text-[#FF9F59]" /> Message the Page to Begin
+              <MessageCircle size={14} className="text-[#FF9F59]" /> Message to Begin
             </p>
           </div>
         </div>
 
-        {/* IMAGE CANVAS (Refined Badge) */}
+        {/* IMAGE CANVAS */}
         <div className="flex-1 w-full max-w-[550px] relative">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
             <img 
@@ -132,13 +133,12 @@ export default function Home() {
               className="w-full h-auto rounded-[3rem] md:rounded-[5rem] shadow-2xl border-[8px] md:border-[14px] border-white" 
             />
             
-            {/* COMPACT "LATEST PROJECTS" BADGE */}
             <motion.div 
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
               className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 bg-slate-900 p-4 md:p-6 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl flex items-center gap-3 md:gap-4 text-white border border-white/5"
             >
-              <div className="bg-[#FF9F59] p-2 md:p-3 rounded-xl md:rounded-2xl text-white shadow-lg shadow-orange-500/20">
+              <div className="bg-[#FF9F59] p-2 md:p-3 rounded-xl md:rounded-2xl text-white shadow-lg">
                 <TrendingUp className="w-5 h-5 md:w-6 md:h-6" />
               </div>
               <div>
@@ -161,12 +161,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
-            
             {/* Construction */}
-            <motion.div 
-              id="construction"
-              className="md:col-span-12 lg:col-span-8 bg-[#F8F9FB] p-8 md:p-16 rounded-[3rem] md:rounded-[5rem] flex flex-col justify-between border border-slate-50 group scroll-mt-32"
-            >
+            <motion.div id="construction" className="md:col-span-12 lg:col-span-8 bg-[#F8F9FB] p-8 md:p-16 rounded-[3rem] md:rounded-[5rem] flex flex-col justify-between border border-slate-50 group scroll-mt-32">
               <div className="space-y-8 md:space-y-10">
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl shadow-sm flex items-center justify-center text-[#FF9F59] group-hover:bg-[#FF9F59] group-hover:text-white transition-all duration-300">
                   <Hammer className="w-7 h-7 md:w-9 md:h-9" strokeWidth={1.5} />
@@ -182,10 +178,7 @@ export default function Home() {
             </motion.div>
 
             {/* Grocery */}
-            <motion.div 
-              id="grocery"
-              className="md:col-span-6 lg:col-span-4 bg-slate-900 p-8 md:p-16 rounded-[3rem] md:rounded-[5rem] flex flex-col justify-between text-white group scroll-mt-32 overflow-hidden relative shadow-2xl"
-            >
+            <motion.div id="grocery" className="md:col-span-6 lg:col-span-4 bg-slate-900 p-8 md:p-16 rounded-[3rem] md:rounded-[5rem] flex flex-col justify-between text-white group scroll-mt-32 overflow-hidden relative shadow-2xl">
               <div className="space-y-8">
                 <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center text-[#FF9F59] backdrop-blur-md">
                   <ShoppingBasket className="w-7 h-7 md:w-8 md:h-8" />
@@ -199,10 +192,7 @@ export default function Home() {
             </motion.div>
 
             {/* Retail */}
-            <motion.div 
-              id="retail"
-              className="md:col-span-6 lg:col-span-12 bg-white p-8 md:p-16 rounded-[3rem] md:rounded-[5rem] flex flex-col lg:flex-row items-center justify-between border border-slate-100 group scroll-mt-32 hover:shadow-xl transition-shadow"
-            >
+            <motion.div id="retail" className="md:col-span-6 lg:col-span-12 bg-white p-8 md:p-16 rounded-[3rem] md:rounded-[5rem] flex flex-col lg:flex-row items-center justify-between border border-slate-100 group scroll-mt-32 hover:shadow-xl transition-shadow">
               <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 text-center lg:text-left">
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-[#FF9F59]/5 rounded-2xl flex items-center justify-center text-[#FF9F59]">
                   <Gem className="w-8 h-8 md:w-10 md:h-10" strokeWidth={1.5} />
