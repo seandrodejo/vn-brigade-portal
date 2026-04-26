@@ -20,8 +20,8 @@ import {
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 /**
- * VN BRIGADE - THE GOD TIER FINAL RELEASE (MESSENGER UPDATE)
- * Target: Quel Ly
+ * VN BRIGADE - THE GOD TIER FINAL RELEASE (PROFILE ID UPDATE)
+ * Target: quel.ly.775790
  */
 
 export default function Home() {
@@ -35,9 +35,8 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // UPDATE: Directed to Quel Ly
-  // Note: Replace 'quel.ly' with her actual Messenger username or numerical ID if it differs
-  const MESSENGER_URL = "https://m.me/quel.ly";
+  // UPDATED: Precise Messenger Routing via Profile ID
+  const MESSENGER_URL = "https://m.me/quel.ly.775790";
 
   const handleMessenger = () => {
     window.open(MESSENGER_URL, "_blank");
